@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: dc-metro-map
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: dc-metro-map
+    app.kubernetes.io/part-of: appstudio
+  name: dc-metro-map
+  namespace: dev-release-team-tenant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: dc-metro-map
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: dc-metro-map
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload:dev-release-team-tenant-dc-metro-map
+        imagePullPolicy: Always
+        name: container-image
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 10m
+            memory: 50Mi
+status: {}
