@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: dc-metro-map
+  namespace: dev-release-team-tenant
+spec:
+  replicas: 1
+  selector: {}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload@sha256:77ddbe268290880b644c4c4580d3fd45ff092d5c16c62d04c3955baba9820dc6
+        name: container-image
+        resources: {}
+status: {}
